@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ytqa4nsi75uy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_no8bm"]
+font_size = 41
+
+[sub_resource type="GDScript" id="GDScript_pjass"]
+resource_name = "play_button"
+script/source = "extends Button
+
+const WORLD_SCENE := preload(\"res://scenes//world.tscn\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pressed.connect(func():
+		TransitionManager.transition_to(WORLD_SCENE, 0.4, 0, false, true, null, \"Scotland\")
+	)
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Node2D" type="Node2D" unique_id=297984520]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=843254479]
+offset_left = -19.0
+offset_top = -16.0
+offset_right = 506.0
+offset_bottom = 289.0
+color = Color(0.19799307, 2.6868991e-05, 0.19799149, 1)
+
+[node name="Label" type="Label" parent="." unique_id=105595596]
+offset_left = 22.0
+offset_right = 205.0
+offset_bottom = 109.0
+text = "RTS"
+label_settings = SubResource("LabelSettings_no8bm")
+
+[node name="Button" type="Button" parent="." unique_id=391447412]
+offset_left = 28.0
+offset_top = 71.0
+offset_right = 208.0
+offset_bottom = 118.0
+text = "Play
+"
+script = SubResource("GDScript_pjass")

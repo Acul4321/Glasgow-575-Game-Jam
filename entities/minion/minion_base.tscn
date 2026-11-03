@@ -1,0 +1,72 @@
+[gd_scene format=4 uid="uid://c23cexcafkkpo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbsdm"]
+size = Vector2(4, 4)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_t6dw0"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAACOAAAAUklGRoYAAABXRUJQVlA4THoAAAAvH8AHECcgJCD8vyQ6YZpAgBBkz7YGgQAhzI4ptfMfAGDvogKjSJIU9YKBGQULBjauDRz5N7VwfO+I/pNN2iSla/7AGxQ5CqR0FFDtAyevkK4L5IolQxdAo5+7AHzDPncB7PgHRY5I6QjVizeR7mBkGDNjxgF+9niPAA==")
+size_override = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee7w1"]
+atlas = SubResource("PortableCompressedTexture2D_t6dw0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja1d1"]
+atlas = SubResource("PortableCompressedTexture2D_t6dw0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb25r"]
+atlas = SubResource("PortableCompressedTexture2D_t6dw0")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5n36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee7w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja1d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee7w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb25r")
+}],
+"loop": 1,
+"name": &"Loop",
+"speed": 10.0
+}]
+
+[node name="MinionBase" type="CharacterBody2D" unique_id=348342114]
+
+[node name="bb" type="CollisionShape2D" parent="." unique_id=1969972264]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_pbsdm")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=640213340]
+texture_filter = 1
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_n5n36")
+animation = &"Loop"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/friends/bob/dude.ase",
+"source_uid": 664453291183402661
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a06a5313785b24e966ca3a1fd893acc6"
