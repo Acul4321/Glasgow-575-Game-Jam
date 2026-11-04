@@ -12,7 +12,7 @@ const WORLD_SCENE := preload(\"res://scenes//world.tscn\")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pressed.connect(func():
-		TransitionManager.transition_to(WORLD_SCENE, 0.4, 0, false, true, null, \"Scotland\")
+		TransitionManager.transition_to(WORLD_SCENE, 0.4, 0, false, true, null, \"Circular\")
 	)
 	pass # Replace with function body.
 
@@ -35,7 +35,7 @@ color = Color(0.19799307, 2.6868991e-05, 0.19799149, 1)
 offset_left = 22.0
 offset_right = 205.0
 offset_bottom = 109.0
-text = "RTS"
+text = "BATTLE SHIPS"
 label_settings = SubResource("LabelSettings_no8bm")
 
 [node name="Button" type="Button" parent="." unique_id=391447412]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ca3nvmmmq1b08"]
+
+[ext_resource type="PackedScene" uid="uid://b1ft1s4x6url3" path="res://entities/battleship/base_ship.tscn" id="1_wlb7j"]
+[ext_resource type="Texture2D" uid="uid://yi2c2mykorn" path="res://assets/battleship/addon_lc_cannon.png" id="2_gcdad"]
+
+[node name="LandingCraft" unique_id=995056119 instance=ExtResource("1_wlb7j")]
+
+[node name="AddonLcCannon" type="Sprite2D" parent="." index="1" unique_id=1451795191]
+position = Vector2(1, -2)
+texture = ExtResource("2_gcdad")

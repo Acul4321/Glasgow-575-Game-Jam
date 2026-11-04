@@ -24,8 +24,8 @@ SoundManager="*uid://ba7is65xvwud0"
 
 [display]
 
-window/size/viewport_width=240
-window/size/viewport_height=144
+window/size/viewport_width=288
+window/size/viewport_height=288
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

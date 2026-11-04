@@ -9,7 +9,7 @@ uniform int tiles_y : hint_range(1, 64) = 5;
 uniform float cross_half_width : hint_range(0.005, 0.2) = 0.06;
 uniform float feather          : hint_range(0.0, 0.05)  = 0.01;
 
-uniform float wave_amp  : hint_range(0.0, 0.1)  = 0.02;
+uniform float wave_amp  : hint_range(0.0, 0.01)  = 0.02;
 uniform float wave_freq : hint_range(0.1, 10.0) = 2.5;
 uniform float wave_speed: hint_range(0.0, 10.0) = 2.0;
 
