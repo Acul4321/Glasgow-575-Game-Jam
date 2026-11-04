@@ -203,10 +203,50 @@ texture = ExtResource("1_rwgxs")
 [sub_resource type="TileSet" id="TileSet_pbsdm"]
 sources/3 = SubResource("TileSetAtlasSource_rwgxs")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbsdm"]
-size = Vector2(288, 30)
+[sub_resource type="GDScript" id="GDScript_l56o8"]
+resource_name = "camerascript"
+script/source = "extends Camera2D
+
+@onready var area2d: Area2D = $Area2D
+@onready var water: ColorRect = get_parent().get_node(\"Water\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			position.y -= 20
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			position.y += 20
+			
+		if position.y <= water.position.y + water.size.y / 2:
+			position.y = water.position.y + water.size.y / 2
+			
+		var viewport_size: Vector2 = get_viewport().get_visible_rect().size
+		var visible_camera_size: Vector2 = viewport_size / zoom
+		var water_bottom: float = water.position.y + (water.size.y)
+		
+		if position.y + visible_camera_size.y / 2 >= water_bottom:
+			position.y = water_bottom - visible_camera_size.y / 2
+"
 
 [node name="World" type="Node2D" unique_id=1234316671]
+
+[node name="Water" type="ColorRect" parent="." unique_id=919971199]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -535.0
+offset_right = 144.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.12156863, 0.6156863, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1288923179]
 visible = false
@@ -215,27 +255,13 @@ tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAAAAAAEAAwAAAAEAAAAAAAIAAwAAAAI
 tile_set = SubResource("TileSet_pbsdm")
 metadata/_edit_lock_ = true
 
-[node name="Water" type="ColorRect" parent="." unique_id=919971199]
-offset_top = -204.0
-offset_right = 288.0
-offset_bottom = 288.0
-color = Color(0, 0.12156863, 0.6156863, 1)
-
 [node name="LandingCraft" parent="." unique_id=995056119 instance=ExtResource("2_rwgxs")]
-position = Vector2(179, 189.99998)
-rotation = 1.5071632
-scale = Vector2(0.5, 0.5)
+position = Vector2(-66, -22.999992)
+rotation = 0.12093675
+scale = Vector2(0.75, 0.75)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=11328406]
-position = Vector2(144, 56)
-
-[node name="Area2D" type="Area2D" parent="Camera2D" unique_id=676396756]
-position = Vector2(-134, -134)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D" unique_id=643236601]
-position = Vector2(134, 5)
-shape = SubResource("RectangleShape2D_pbsdm")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Area2D" unique_id=1387148873]
-position = Vector2(134, 263)
-shape = SubResource("RectangleShape2D_pbsdm")
+position = Vector2(0, -112)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+script = SubResource("GDScript_l56o8")
