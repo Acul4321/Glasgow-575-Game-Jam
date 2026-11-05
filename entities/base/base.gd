@@ -6,6 +6,7 @@ signal boat_built
 
 @export var max_health: int = 500
 @export var build_time: float = 2.0
+@export var build_progress_bar: ProgressBar
 
 @export var is_player_base: bool = true
 @export var boat_parent: Node2D
@@ -38,7 +39,19 @@ func build_boat(boat_scene: PackedScene) -> void:
 
 	is_building = true
 
-	await get_tree().create_timer(build_time).timeout
+	# creates timer to build boat and then displays it on the progress bar
+	var build_timer := get_tree().create_timer(build_time)
+	if build_progress_bar:
+		build_progress_bar.value = 0.0
+
+	while build_timer.time_left > 0.0:
+		if build_progress_bar:
+			var progress := 1.0 - (build_timer.time_left / build_time)
+			build_progress_bar.value = progress * build_progress_bar.max_value
+		await get_tree().process_frame
+
+	if build_progress_bar:
+		build_progress_bar.value = build_progress_bar.max_value
 
 	var boat := boat_scene.instantiate()
 

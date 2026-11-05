@@ -260,12 +260,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAAAAAAEAAwAAAAEAAAAAAAIAAwAAAAI
 tile_set = SubResource("TileSet_pbsdm")
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=11328406]
-position = Vector2(0, -112)
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
-script = SubResource("GDScript_l56o8")
-
 [node name="Game" type="Node2D" parent="." unique_id=899980212]
 
 [node name="Boat" type="Node2D" parent="Game" unique_id=1915686679]
@@ -277,8 +271,9 @@ scale = Vector2(0.75, 0.75)
 
 [node name="Base" type="Node2D" parent="Game" unique_id=1879833616]
 
-[node name="AllyBase" parent="Game/Base" unique_id=331951007 node_paths=PackedStringArray("boat_parent") instance=ExtResource("3_k0juu")]
+[node name="AllyBase" parent="Game/Base" unique_id=331951007 node_paths=PackedStringArray("build_progress_bar", "boat_parent") instance=ExtResource("3_k0juu")]
 position = Vector2(0, 71)
+build_progress_bar = NodePath("../../../Camera2D/HUD/Gameplay/VBoxContainer/BuildProgress")
 boat_parent = NodePath("../../Boat")
 
 [node name="EnemyBase" parent="Game/Base" unique_id=348606994 node_paths=PackedStringArray("boat_parent") instance=ExtResource("3_k0juu")]
@@ -287,10 +282,34 @@ rotation = 3.1415927
 is_player_base = false
 boat_parent = NodePath("../../Boat")
 
-[node name="HUD" parent="." unique_id=205778110 instance=ExtResource("4_71j4m")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=11328406]
+position = Vector2(0, -112)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+script = SubResource("GDScript_l56o8")
 
-[connection signal="pressed" from="HUD/Gameplay/LaunchButton" to="." method="_on_launch_button_pressed"]
+[node name="HUD" parent="Camera2D" unique_id=205778110 instance=ExtResource("4_71j4m")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -136.0
+offset_top = 112.0
+offset_bottom = 112.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Gameplay" parent="Camera2D/HUD" index="0" unique_id=104898506]
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Label" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/CannonCheck" parent_id_path=PackedInt32Array(205778110, 467482127) index="0" unique_id=30439905]
+theme_override_font_sizes/font_size = 11
+
+[node name="Label" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" parent_id_path=PackedInt32Array(205778110, 358671260) index="0" unique_id=1127148326]
+theme_override_font_sizes/font_size = 11
+
+[connection signal="pressed" from="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]
 
 [editable path="Game/Base/AllyBase"]
 [editable path="Game/Base/EnemyBase"]
-[editable path="HUD"]
+[editable path="Camera2D/HUD"]

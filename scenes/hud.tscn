@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bj3kt0nn70ar6"]
 
+[ext_resource type="Texture2D" uid="uid://dx5srlauujmrd" path="res://assets/battleship/basebattleship.png" id="1_ahhtf"]
+
 [node name="HUD" type="Control" unique_id=205778110]
 layout_mode = 3
 anchors_preset = 15
@@ -13,8 +15,41 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="LaunchButton" type="Button" parent="Gameplay" unique_id=1428651150]
+[node name="VBoxContainer" type="VBoxContainer" parent="Gameplay" unique_id=27319047]
 layout_mode = 0
-offset_right = 65.0
-offset_bottom = 31.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gameplay/VBoxContainer" unique_id=1931294759]
+layout_mode = 2
+
+[node name="SpriteTexture" type="TextureRect" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=681631525]
+layout_mode = 2
+texture = ExtResource("1_ahhtf")
+
+[node name="CannonCheck" type="VBoxContainer" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=467482127]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" unique_id=30439905]
+layout_mode = 2
+text = "Cannon"
+
+[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" unique_id=2132809196]
+layout_mode = 2
+
+[node name="ArmourCheck" type="VBoxContainer" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=358671260]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" unique_id=1127148326]
+layout_mode = 2
+text = "Armour"
+
+[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" unique_id=1037484245]
+layout_mode = 2
+
+[node name="LaunchButton" type="Button" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=1428651150]
+layout_mode = 2
 text = "Launch"
+
+[node name="BuildProgress" type="ProgressBar" parent="Gameplay/VBoxContainer" unique_id=1273698552]
+layout_mode = 2
