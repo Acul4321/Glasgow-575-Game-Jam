@@ -53,3 +53,11 @@ text = "Launch"
 
 [node name="BuildProgress" type="ProgressBar" parent="Gameplay/VBoxContainer" unique_id=1273698552]
 layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Gameplay" unique_id=1823706956]
+layout_mode = 0
+offset_top = -357.0
+offset_right = 40.0
+offset_bottom = -317.0
+text = "$10"
+fit_content = true

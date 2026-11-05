@@ -21,6 +21,7 @@ Constants="*uid://b3rkp7kvv0ml3"
 Global="*uid://btmaanpatm5uw"
 TransitionManager="*uid://cq1ijn7bfg0gd"
 SoundManager="*uid://ba7is65xvwud0"
+MoneyManager="*uid://c57ta4sg1quqt"
 
 [display]
 
