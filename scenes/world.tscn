@@ -212,10 +212,20 @@ script/source = "extends Camera2D
 
 @onready var area2d: Area2D = $Area2D
 @onready var water: ColorRect = get_parent().get_node(\"Water\")
+var child_positions: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for child in get_children():
+		if child is Node2D or child is Control:
+			child_positions[child] = child.position
+
+func _process(_delta: float) -> void:
+	# so UI moves with camera, all UI follows smooth camera movement
+	var smoothing_offset := get_screen_center_position() - global_position
+
+	for child in child_positions:
+		child.position = child_positions[child] + smoothing_offset
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -279,7 +289,6 @@ boat_parent = NodePath("../../Boat")
 [node name="EnemyBase" parent="Game/Base" unique_id=348606994 node_paths=PackedStringArray("boat_parent") instance=ExtResource("3_k0juu")]
 position = Vector2(0, -411)
 rotation = 3.1415927
-is_player_base = false
 boat_parent = NodePath("../../Boat")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=11328406]
