@@ -234,15 +234,16 @@ func _input(event: InputEvent) -> void:
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			position.y += 20
 			
-		if position.y <= water.position.y + water.size.y / 2:
-			position.y = water.position.y + water.size.y / 2
-			
 		var viewport_size: Vector2 = get_viewport().get_visible_rect().size
 		var visible_camera_size: Vector2 = viewport_size / zoom
-		var water_bottom: float = water.position.y + (water.size.y)
+		var water_up: float = water.position.y
+		var water_bottom: float = water.position.y + water.size.y
+		var camera_half_height: float = visible_camera_size.y / 2.0
 		
-		if position.y + visible_camera_size.y / 2 >= water_bottom:
-			position.y = water_bottom - visible_camera_size.y / 2
+		if position.y - camera_half_height <= water_up:
+			position.y = water_up + camera_half_height
+		elif position.y + camera_half_height >= water_bottom:
+			position.y = water_bottom - camera_half_height
 "
 
 [node name="World" type="Node2D" unique_id=1234316671]
@@ -258,7 +259,7 @@ anchor_bottom = 0.5
 offset_left = -144.0
 offset_top = -902.83
 offset_right = 156.03
-offset_bottom = 430.38995
+offset_bottom = 152.90497
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.12156863, 0.6156863, 1)
@@ -282,7 +283,7 @@ scale = Vector2(0.75, 0.75)
 [node name="Base" type="Node2D" parent="Game" unique_id=1879833616]
 
 [node name="AllyBase" parent="Game/Base" unique_id=331951007 node_paths=PackedStringArray("build_progress_bar", "boat_parent") instance=ExtResource("3_k0juu")]
-position = Vector2(0, 71)
+position = Vector2(0, -37.715)
 build_progress_bar = NodePath("../../../Camera2D/HUD/Gameplay/VBoxContainer/BuildProgress")
 boat_parent = NodePath("../../Boat")
 
@@ -290,6 +291,9 @@ boat_parent = NodePath("../../Boat")
 position = Vector2(0, -411)
 rotation = 3.1415927
 boat_parent = NodePath("../../Boat")
+
+[node name="BaseSprite" parent="Game/Base/EnemyBase" index="0" unique_id=1254960181]
+position = Vector2(3.0160858e-05, 345)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=11328406]
 position = Vector2(0, -112)
@@ -316,14 +320,6 @@ theme_override_font_sizes/font_size = 11
 
 [node name="Label" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" parent_id_path=PackedInt32Array(205778110, 358671260) index="0" unique_id=1127148326]
 theme_override_font_sizes/font_size = 11
-
-[node name="RichTextLabel" parent="Camera2D/HUD/Gameplay" index="1" unique_id=1823706956]
-layout_mode = 0
-offset_top = -357.0
-offset_right = 40.0
-offset_bottom = -317.0
-text = "$10"
-fit_content = true
 
 [connection signal="pressed" from="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]
 
