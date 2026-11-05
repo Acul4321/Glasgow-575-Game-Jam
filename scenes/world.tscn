@@ -317,6 +317,14 @@ theme_override_font_sizes/font_size = 11
 [node name="Label" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" parent_id_path=PackedInt32Array(205778110, 358671260) index="0" unique_id=1127148326]
 theme_override_font_sizes/font_size = 11
 
+[node name="RichTextLabel" parent="Camera2D/HUD/Gameplay" index="1" unique_id=1823706956]
+layout_mode = 0
+offset_top = -357.0
+offset_right = 40.0
+offset_bottom = -317.0
+text = "$10"
+fit_content = true
+
 [connection signal="pressed" from="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]
 
 [editable path="Game/Base/AllyBase"]

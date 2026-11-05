@@ -5,7 +5,7 @@ signal passive_income_paid(amount: int)
 
 var starting_money: int = 100
 var passive_income_amount: int = 10
-var passive_income_interval: float = 1.0
+var passive_income_interval: float = 10.0
 
 var money: int
 var income_timer: Timer

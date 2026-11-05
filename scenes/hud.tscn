@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bj3kt0nn70ar6"]
 
 [ext_resource type="Texture2D" uid="uid://dx5srlauujmrd" path="res://assets/battleship/basebattleship.png" id="1_ahhtf"]
+[ext_resource type="Script" path="res://scripts/money_display.gd" id="2_money_display"]
 
 [node name="HUD" type="Control" unique_id=205778110]
 layout_mode = 3
@@ -54,10 +55,10 @@ text = "Launch"
 [node name="BuildProgress" type="ProgressBar" parent="Gameplay/VBoxContainer" unique_id=1273698552]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Gameplay" unique_id=1823706956]
+[node name="MoneyDisplay" type="RichTextLabel" parent="Gameplay" unique_id=1823706956]
 layout_mode = 0
 offset_top = -357.0
 offset_right = 40.0
 offset_bottom = -317.0
-text = "$10"
 fit_content = true
+script = ExtResource("2_money_display")
