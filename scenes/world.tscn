@@ -1,7 +1,10 @@
 [gd_scene format=4 uid="uid://d6upnpu2x64"]
 
+[ext_resource type="Script" uid="uid://bmtinbkfywjjm" path="res://scripts/world.gd" id="1_71j4m"]
 [ext_resource type="Texture2D" uid="uid://cf0tdlkv220p4" path="res://assets/map/map.png" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://ca3nvmmmq1b08" path="res://entities/battleship/landing_craft/landing_craft.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://dtcvo6c2wh6c7" path="res://entities/base/base.tscn" id="3_k0juu"]
+[ext_resource type="PackedScene" uid="uid://bj3kt0nn70ar6" path="res://scenes/hud.tscn" id="4_71j4m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4wyf3"]
 
@@ -233,6 +236,8 @@ func _input(event: InputEvent) -> void:
 "
 
 [node name="World" type="Node2D" unique_id=1234316671]
+script = ExtResource("1_71j4m")
+boat_scene = ExtResource("2_rwgxs")
 
 [node name="Water" type="ColorRect" parent="." unique_id=919971199]
 anchors_preset = 8
@@ -255,13 +260,37 @@ tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAAAAAAEAAwAAAAEAAAAAAAIAAwAAAAI
 tile_set = SubResource("TileSet_pbsdm")
 metadata/_edit_lock_ = true
 
-[node name="LandingCraft" parent="." unique_id=995056119 instance=ExtResource("2_rwgxs")]
-position = Vector2(-66, -22.999992)
-rotation = 0.12093675
-scale = Vector2(0.75, 0.75)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=11328406]
 position = Vector2(0, -112)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 script = SubResource("GDScript_l56o8")
+
+[node name="Game" type="Node2D" parent="." unique_id=899980212]
+
+[node name="Boat" type="Node2D" parent="Game" unique_id=1915686679]
+
+[node name="LandingCraft" parent="Game/Boat" unique_id=995056119 instance=ExtResource("2_rwgxs")]
+position = Vector2(-66, -22.999992)
+rotation = 0.12093675
+scale = Vector2(0.75, 0.75)
+
+[node name="Base" type="Node2D" parent="Game" unique_id=1879833616]
+
+[node name="AllyBase" parent="Game/Base" unique_id=331951007 node_paths=PackedStringArray("boat_parent") instance=ExtResource("3_k0juu")]
+position = Vector2(0, 71)
+boat_parent = NodePath("../../Boat")
+
+[node name="EnemyBase" parent="Game/Base" unique_id=348606994 node_paths=PackedStringArray("boat_parent") instance=ExtResource("3_k0juu")]
+position = Vector2(0, -411)
+rotation = 3.1415927
+is_player_base = false
+boat_parent = NodePath("../../Boat")
+
+[node name="HUD" parent="." unique_id=205778110 instance=ExtResource("4_71j4m")]
+
+[connection signal="pressed" from="HUD/Gameplay/LaunchButton" to="." method="_on_launch_button_pressed"]
+
+[editable path="Game/Base/AllyBase"]
+[editable path="Game/Base/EnemyBase"]
+[editable path="HUD"]

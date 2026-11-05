@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dtcvo6c2wh6c7"]
+
+[ext_resource type="Script" uid="uid://cwbnw8b8yexfs" path="res://entities/base/base.gd" id="1_3i11b"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3ed8h"]
+width = 48
+height = 48
+
+[node name="Base" type="Node2D" unique_id=331951007 node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("1_3i11b")
+spawn_point = NodePath("SpawnPoint")
+
+[node name="BaseSprite" type="Sprite2D" parent="." unique_id=1254960181]
+texture = SubResource("NoiseTexture2D_3ed8h")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=341760211]
+unique_name_in_owner = true
+position = Vector2(1, -32)
