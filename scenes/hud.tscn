@@ -74,7 +74,7 @@ metadata/addon_id = "armour"
 layout_mode = 2
 metadata/addon_id = "armour"
 
-[node name="LaunchButton" type="Button" parent="Gameplay/VBoxContainer/HBoxContainer" groups=["launch_button"] unique_id=1428651150]
+[node name="LaunchButton" type="Button" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=1428651150 groups=["launch_button"]]
 layout_mode = 2
 text = "Launch"
 
@@ -84,7 +84,8 @@ layout_mode = 2
 [node name="MoneyDisplay" type="RichTextLabel" parent="Gameplay" unique_id=1823706956]
 layout_mode = 0
 offset_top = -357.0
-offset_right = 40.0
+offset_right = 286.0
 offset_bottom = -317.0
 fit_content = true
+scroll_active = false
 script = ExtResource("2_money_display")

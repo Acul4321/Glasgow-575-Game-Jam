@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://ca3nvmmmq1b08"]
 
+[ext_resource type="Script" path="res://entities/battleship/landing_craft/landing_craft.gd" id="3_landing_craft"]
+[ext_resource type="Resource" path="res://entities/battleship/landing_craft/landing_craft.tres" id="4_landing_craft_resource"]
 [ext_resource type="PackedScene" uid="uid://b1ft1s4x6url3" path="res://entities/battleship/base_ship.tscn" id="1_wlb7j"]
 [ext_resource type="Texture2D" uid="uid://yi2c2mykorn" path="res://assets/battleship/addon_lc_cannon.png" id="2_gcdad"]
 [ext_resource type="Texture2D" uid="uid://dx5srlauujmrd" path="res://assets/battleship/basebattleship.png" id="2_ttaj1"]
 
 [node name="LandingCraft" unique_id=995056119 instance=ExtResource("1_wlb7j")]
-cost = 20
+script = ExtResource("3_landing_craft")
+boat_resource = ExtResource("4_landing_craft_resource")
 
 [node name="ArmourAddon" type="Sprite2D" parent="." index="0" unique_id=301363483 groups=["ship_addon"]]
 visible = false
