@@ -330,8 +330,16 @@ layout_mode = 2
 [node name="Label" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/CannonCheck" parent_id_path=PackedInt32Array(205778110, 467482127) index="0" unique_id=30439905]
 theme_override_font_sizes/font_size = 11
 
+[node name="CannonPriceLabel" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/CannonCheck" parent_id_path=PackedInt32Array(205778110, 467482127) index="1" unique_id=30439906 groups=["addon_cost_display"]]
+text = "$price"
+
 [node name="Label" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" parent_id_path=PackedInt32Array(205778110, 358671260) index="0" unique_id=1127148326]
 theme_override_font_sizes/font_size = 11
+
+[node name="ArmourPriceLabel" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" parent_id_path=PackedInt32Array(205778110, 358671260) index="1" unique_id=1127148327 groups=["addon_cost_display"]]
+text = "$price"
+
+[node name="LaunchButton" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer" index="4" unique_id=1428651150 groups=["launch_button"]]
 
 [connection signal="pressed" from="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/LaunchButton" to="." method="_on_launch_button_pressed"]
 

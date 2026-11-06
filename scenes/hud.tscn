@@ -24,7 +24,7 @@ offset_bottom = 40.0
 [node name="HBoxContainer" type="HBoxContainer" parent="Gameplay/VBoxContainer" unique_id=1931294759]
 layout_mode = 2
 
-[node name="BoatPreview" parent="Gameplay/VBoxContainer/HBoxContainer" groups=["boat_preview"] unique_id=681631525 instance=ExtResource("1_landing_craft")]
+[node name="BoatPreview" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=681631525 groups=["boat_preview"] instance=ExtResource("1_landing_craft")]
 position = Vector2(24, 16)
 scale = Vector2(0.5, 0.5)
 
@@ -35,9 +35,14 @@ layout_mode = 2
 layout_mode = 2
 text = "Cannon"
 
-[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" groups=["addon_selector"] unique_id=2132809196]
-metadata/addon_id = "cannon"
+[node name="CannonPriceLabel" type="Label" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" unique_id=30439906 groups=["addon_price_display"]]
 layout_mode = 2
+text = "$0"
+metadata/addon_id = "cannon"
+
+[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" unique_id=2132809196 groups=["addon_selector"]]
+layout_mode = 2
+metadata/addon_id = "cannon"
 
 [node name="ArmourCheck" type="VBoxContainer" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=358671260]
 layout_mode = 2
@@ -46,9 +51,14 @@ layout_mode = 2
 layout_mode = 2
 text = "Armour"
 
-[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" groups=["addon_selector"] unique_id=1037484245]
-metadata/addon_id = "armour"
+[node name="ArmourPriceLabel" type="Label" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" unique_id=1127148327 groups=["addon_price_display"]]
 layout_mode = 2
+text = "$0"
+metadata/addon_id = "armour"
+
+[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" unique_id=1037484245 groups=["addon_selector"]]
+layout_mode = 2
+metadata/addon_id = "armour"
 
 [node name="LaunchButton" type="Button" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=1428651150]
 layout_mode = 2
