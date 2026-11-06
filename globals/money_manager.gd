@@ -2,6 +2,7 @@ extends Node
 
 signal money_changed(new_amount: int)
 signal passive_income_paid(amount: int)
+signal money_spent(amount: int)
 
 var starting_money: int = 100
 var passive_income_amount: int = 10
@@ -36,6 +37,7 @@ func spend_money(amount: int) -> bool:
 
 	money -= amount
 	money_changed.emit(money)
+	money_spent.emit(amount)
 	return true
 
 
