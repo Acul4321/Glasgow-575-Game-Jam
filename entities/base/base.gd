@@ -77,20 +77,11 @@ func build_boat(boat_scene: PackedScene, addons: Array[String] = []) -> void:
 	boat_built.emit()
 
 
-# Calculates the boat cost plus the costs of its selected addon visuals.
+# gets the configuration cost from the boat's own class.
 func _get_boat_cost(boat_scene: PackedScene, addons: Array[String]) -> int:
-	var cost_preview := boat_scene.instantiate()
-	var total_cost := int(cost_preview.get("cost"))
-
-	for addon in cost_preview.find_children("*", "CanvasItem", true, false):
-		if not addon.is_in_group("ship_addon"):
-			continue
-
-		var addon_id := str(addon.get_meta("addon_id", ""))
-		if addon_id in addons:
-			total_cost += int(addon.get_meta("cost", 0))
-
-	cost_preview.free()
+	var boat := boat_scene.instantiate()
+	var total_cost := int(boat.call("get_configuration_cost", addons))
+	boat.free()
 	return total_cost
 
 

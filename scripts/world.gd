@@ -69,14 +69,7 @@ func _update_launch_button_price() -> void:
 # calculates the boat configuration cost
 func _get_configuration_cost() -> int:
 	var boat := boat_scene.instantiate()
-	var total_cost := int(boat.get("cost"))
-	var selected_addons := _get_selected_addons()
-
-	for addon in boat.find_children("*", "CanvasItem", true, false):
-		var addon_id := str(addon.get_meta("addon_id", ""))
-		if addon_id in selected_addons:
-			total_cost += int(addon.get_meta("cost", 0))
-
+	var total_cost := int(boat.call("get_configuration_cost", _get_selected_addons()))
 	boat.free()
 	return total_cost
 
@@ -84,15 +77,9 @@ func _get_configuration_cost() -> int:
 # reads an addon's cost metadata
 func _get_addon_cost(addon_id: String) -> int:
 	var boat := boat_scene.instantiate()
-
-	for addon in boat.find_children("*", "CanvasItem", true, false):
-		if addon.get_meta("addon_id", "") == addon_id:
-			var cost := int(addon.get_meta("cost", 0))
-			boat.free()
-			return cost
-
+	var cost := int(boat.call("get_addon_cost", addon_id))
 	boat.free()
-	return 0
+	return cost
 	
 	
 # gets selected addon IDs from checked buttons
