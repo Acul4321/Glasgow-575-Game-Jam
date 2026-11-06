@@ -1,13 +1,10 @@
-[gd_resource type="Resource" script_class="BoatResource" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="BoatResource" format=3 uid="uid://gfk1qevn6lw4"]
 
-[ext_resource type="Script" path="res://resources/boat_resource.gd" id="1_resource"]
-[ext_resource type="Script" path="res://entities/battleship/landing_craft/landing_craft.gd" id="2_behavior"]
+[ext_resource type="Script" uid="uid://7o6nqreg5txx" path="res://resources/boat_resource.gd" id="1_resource"]
+[ext_resource type="Script" uid="uid://bdl2o510m8g8b" path="res://entities/battleship/landing_craft/landing_craft.gd" id="2_behavior"]
 
 [resource]
 script = ExtResource("1_resource")
 boat_name = "Landing Craft"
 behavior_script = ExtResource("2_behavior")
-size = 0
-build_time = 1.0
-cost = 20
-available_addons = ["armour", "cannon"]
+available_addons = Array[String](["armour", "cannon"])

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dklxniiibd4tn"]
+
+[ext_resource type="Script" uid="uid://c5fr275t58d6o" path="res://entities/battleship/submarine/submarine.gd" id="2_submarine"]
+[ext_resource type="Resource" path="res://entities/battleship/submarine/submarine.tres" id="3_submarine_resource"]
+[ext_resource type="Texture2D" uid="uid://dx5srlauujmrd" path="res://assets/battleship/basebattleship.png" id="4_base_sprite"]
+
+[node name="Submarine" type="Node2D" unique_id=989905351]
+script = ExtResource("2_submarine")
+boat_resource = ExtResource("3_submarine_resource")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1420499891]
+texture = ExtResource("4_base_sprite")
+
+[node name="PropellerAddon" type="Polygon2D" parent="." unique_id=1920904379 groups=["ship_addon"]]
+visible = false
+color = Color(0.35, 0.42, 0.5, 1)
+polygon = PackedVector2Array(-12, -2, -3, -2, -3, -12, 3, -12, 3, -2, 12, -2, 12, 2, 3, 2, 3, 12, -3, 12, -3, 2, -12, 2)
+metadata/addon_id = "propeller"
+metadata/cost = 10
+metadata/speed_bonus = 2.0
