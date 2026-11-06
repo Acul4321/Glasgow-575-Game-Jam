@@ -3,6 +3,7 @@ extends Node2D
 @onready var ally_base: Base = $Game/Base/AllyBase
 @onready var boat_preview: Node2D = get_tree().get_first_node_in_group("boat_preview")
 @onready var boat_price_label: Label = get_tree().get_first_node_in_group("boat_price_display")
+@onready var launch_button: Button = get_tree().get_first_node_in_group("launch_button")
 
 var addon_selectors: Array[Node] = []
 var addon_price_labels: Array[Node] = []
@@ -21,6 +22,7 @@ func _ready() -> void:
 	_update_boat_preview()
 	_update_addon_price_labels()
 	_update_boat_price_label()
+	_update_launch_button_price()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +39,7 @@ func _on_launch_button_pressed() -> void:
 func _on_addon_toggled(_enabled: bool) -> void:
 	_update_boat_preview()
 	_update_addon_price_labels()
+	_update_launch_button_price()
 
 
 # updates the selected addons to the boat preview.
@@ -56,6 +59,26 @@ func _update_boat_price_label() -> void:
 	var boat := boat_scene.instantiate()
 	boat_price_label.text = "$%d" % int(boat.get("cost"))
 	boat.free()
+
+
+# Updates the launch button with the current boat configuration cost.
+func _update_launch_button_price() -> void:
+	launch_button.text = "$%d \n Launch" % _get_configuration_cost()
+
+
+# calculates the boat configuration cost
+func _get_configuration_cost() -> int:
+	var boat := boat_scene.instantiate()
+	var total_cost := int(boat.get("cost"))
+	var selected_addons := _get_selected_addons()
+
+	for addon in boat.find_children("*", "CanvasItem", true, false):
+		var addon_id := str(addon.get_meta("addon_id", ""))
+		if addon_id in selected_addons:
+			total_cost += int(addon.get_meta("cost", 0))
+
+	boat.free()
+	return total_cost
 
 
 # reads an addon's cost metadata

@@ -74,7 +74,7 @@ metadata/addon_id = "armour"
 layout_mode = 2
 metadata/addon_id = "armour"
 
-[node name="LaunchButton" type="Button" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=1428651150]
+[node name="LaunchButton" type="Button" parent="Gameplay/VBoxContainer/HBoxContainer" groups=["launch_button"] unique_id=1428651150]
 layout_mode = 2
 text = "Launch"
 
