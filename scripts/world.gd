@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var ally_base: Base = $Game/Base/AllyBase
 @onready var boat_preview: Node2D = get_tree().get_first_node_in_group("boat_preview")
+@onready var boat_price_label: Label = get_tree().get_first_node_in_group("boat_price_display")
 
 var addon_selectors: Array[Node] = []
 var addon_price_labels: Array[Node] = []
@@ -19,6 +20,7 @@ func _ready() -> void:
 
 	_update_boat_preview()
 	_update_addon_price_labels()
+	_update_boat_price_label()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,6 +51,13 @@ func _update_addon_price_labels() -> void:
 		price_label.text = "$%d" % _get_addon_cost(addon_id)
 
 
+# Updates the boat price label from the boat scene's exported cost.
+func _update_boat_price_label() -> void:
+	var boat := boat_scene.instantiate()
+	boat_price_label.text = "$%d" % int(boat.get("cost"))
+	boat.free()
+
+
 # reads an addon's cost metadata
 func _get_addon_cost(addon_id: String) -> int:
 	var boat := boat_scene.instantiate()
@@ -61,6 +70,8 @@ func _get_addon_cost(addon_id: String) -> int:
 
 	boat.free()
 	return 0
+	
+	
 # gets selected addon IDs from checked buttons
 func _get_selected_addons() -> Array[String]:
 	var selected_addons: Array[String] = []
