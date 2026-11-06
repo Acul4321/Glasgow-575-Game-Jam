@@ -256,10 +256,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -144.0
-offset_top = -902.83
-offset_right = 156.03
-offset_bottom = 152.90497
+offset_left = -151.0
+offset_top = -901.0
+offset_right = 149.03
+offset_bottom = 154.73499
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.12156863, 0.6156863, 1)
@@ -305,15 +305,27 @@ script = SubResource("GDScript_l56o8")
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -136.0
-offset_top = 112.0
-offset_bottom = 112.0
+offset_left = -105.0
+offset_top = 141.0
+offset_right = 55.0
+offset_bottom = 214.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Gameplay" parent="Camera2D/HUD" index="0" unique_id=104898506]
 offset_right = 0.0
 offset_bottom = 0.0
+
+[node name="HBoxContainer" parent="Camera2D/HUD/Gameplay/VBoxContainer" parent_id_path=PackedInt32Array(205778110, 27319047) index="0" unique_id=1931294759]
+custom_minimum_size = Vector2(0, 70.33)
+
+[node name="BoatPreview" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer" index="0" unique_id=681631525]
+position = Vector2(27.51, 36.285)
+scale = Vector2(1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer" index="1" unique_id=812770272]
+custom_minimum_size = Vector2(50.315, 0)
+layout_mode = 2
 
 [node name="Label" parent="Camera2D/HUD/Gameplay/VBoxContainer/HBoxContainer/CannonCheck" parent_id_path=PackedInt32Array(205778110, 467482127) index="0" unique_id=30439905]
 theme_override_font_sizes/font_size = 11

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bj3kt0nn70ar6"]
 
-[ext_resource type="Texture2D" uid="uid://dx5srlauujmrd" path="res://assets/battleship/basebattleship.png" id="1_ahhtf"]
-[ext_resource type="Script" path="res://scripts/money_display.gd" id="2_money_display"]
+[ext_resource type="PackedScene" uid="uid://ca3nvmmmq1b08" path="res://entities/battleship/landing_craft/landing_craft.tscn" id="1_landing_craft"]
+[ext_resource type="Script" uid="uid://ca84f37hv42bk" path="res://scripts/money_display.gd" id="2_money_display"]
 
 [node name="HUD" type="Control" unique_id=205778110]
 layout_mode = 3
@@ -24,9 +24,9 @@ offset_bottom = 40.0
 [node name="HBoxContainer" type="HBoxContainer" parent="Gameplay/VBoxContainer" unique_id=1931294759]
 layout_mode = 2
 
-[node name="SpriteTexture" type="TextureRect" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=681631525]
-layout_mode = 2
-texture = ExtResource("1_ahhtf")
+[node name="BoatPreview" parent="Gameplay/VBoxContainer/HBoxContainer" groups=["boat_preview"] unique_id=681631525 instance=ExtResource("1_landing_craft")]
+position = Vector2(24, 16)
+scale = Vector2(0.5, 0.5)
 
 [node name="CannonCheck" type="VBoxContainer" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=467482127]
 layout_mode = 2
@@ -35,7 +35,8 @@ layout_mode = 2
 layout_mode = 2
 text = "Cannon"
 
-[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" unique_id=2132809196]
+[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" groups=["addon_selector"] unique_id=2132809196]
+metadata/addon_id = "cannon"
 layout_mode = 2
 
 [node name="ArmourCheck" type="VBoxContainer" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=358671260]
@@ -45,7 +46,8 @@ layout_mode = 2
 layout_mode = 2
 text = "Armour"
 
-[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" unique_id=1037484245]
+[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" groups=["addon_selector"] unique_id=1037484245]
+metadata/addon_id = "armour"
 layout_mode = 2
 
 [node name="LaunchButton" type="Button" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=1428651150]

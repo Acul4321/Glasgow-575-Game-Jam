@@ -2,9 +2,41 @@
 
 [ext_resource type="PackedScene" uid="uid://b1ft1s4x6url3" path="res://entities/battleship/base_ship.tscn" id="1_wlb7j"]
 [ext_resource type="Texture2D" uid="uid://yi2c2mykorn" path="res://assets/battleship/addon_lc_cannon.png" id="2_gcdad"]
+[ext_resource type="Texture2D" uid="uid://dx5srlauujmrd" path="res://assets/battleship/basebattleship.png" id="2_ttaj1"]
 
 [node name="LandingCraft" unique_id=995056119 instance=ExtResource("1_wlb7j")]
 
-[node name="AddonLcCannon" type="Sprite2D" parent="." index="1" unique_id=1451795191]
+[node name="ArmourAddon" type="Sprite2D" parent="." index="0" unique_id=301363483 groups=["ship_addon"]]
+visible = false
+rotation = 0.3874631
+texture = ExtResource("2_ttaj1")
+metadata/addon_id = "armour"
+
+[node name="Base" parent="." index="1" unique_id=431899921]
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "",
+"source_uid": -1
+}
+}
+
+[node name="CannonAddon" type="Sprite2D" parent="." index="2" unique_id=1451795191 groups=["ship_addon"]]
+visible = false
 position = Vector2(1, -2)
 texture = ExtResource("2_gcdad")
+metadata/addon_id = "cannon"

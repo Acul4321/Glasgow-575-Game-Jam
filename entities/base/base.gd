@@ -29,7 +29,8 @@ func take_damage(amount: int) -> void:
 	if health == 0:
 		destroy_base()
 
-func build_boat(boat_scene: PackedScene) -> void:
+# spawns a boat after applying addon IDs.
+func build_boat(boat_scene: PackedScene, addons: Array[String] = []) -> void:
 	if is_building:
 		return
 
@@ -66,6 +67,7 @@ func build_boat(boat_scene: PackedScene) -> void:
 		boat.global_position = global_position
 
 	boat.set("player_ship", is_player_base)
+	boat.call("set_addons", addons)
 
 	is_building = false
 	boat_built.emit()
