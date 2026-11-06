@@ -2,13 +2,13 @@ extends CanvasLayer
 
 const SHADERS := {
 	Circular = preload("res://shaders/transition_circular.gdshader"),
-	Diagonal = preload("res://shaders/transition_diagonal.gdshader"),
-	Hole = preload("res://shaders/transition_hole.gdshader"),
-	Door = preload("res://shaders/transition_door.gdshader"),
-	Scotland = preload("res://shaders/transition_scotland.gdshader"),
+	#Diagonal = preload("res://shaders/transition_diagonal.gdshader"),
+	#Hole = preload("res://shaders/transition_hole.gdshader"),
+	#Door = preload("res://shaders/transition_door.gdshader"),
+	#Scotland = preload("res://shaders/transition_scotland.gdshader"),
 }
 
-var transition_fade = preload("res://shaders/transition_fade.gdshader")
+#var transition_fade = preload("res://shaders/transition_fade.gdshader")
 var mat: ShaderMaterial
 
 @onready var container: SubViewportContainer = $SubViewportContainer
