@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ytqa4nsi75uy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_no8bm"]
+font_size = 79
+
+[sub_resource type="GDScript" id="GDScript_pjass"]
+resource_name = "play_button"
+script/source = "extends Button
+
+const WORLD_SCENE := preload(\"res://scenes//world.tscn\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pressed.connect(func():
+		TransitionManager.transition_to(WORLD_SCENE)
+	)
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbsdm"]
+font_size = 49
+font_color = Color(0, 1, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=297984520]
+
+[node name="Label" type="Label" parent="." unique_id=105595596]
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 641.0
+offset_bottom = 125.0
+text = "RTS"
+label_settings = SubResource("LabelSettings_no8bm")
+
+[node name="Button" type="Button" parent="." unique_id=391447412]
+offset_left = 46.0
+offset_top = 161.0
+offset_right = 353.0
+offset_bottom = 290.0
+script = SubResource("GDScript_pjass")
+
+[node name="Label" type="Label" parent="Button" unique_id=268279606]
+layout_mode = 0
+offset_right = 307.0
+offset_bottom = 129.0
+text = "Play"
+label_settings = SubResource("LabelSettings_pbsdm")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true

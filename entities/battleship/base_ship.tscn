@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b1ft1s4x6url3"]
+
+[ext_resource type="Script" uid="uid://b1t7ttxap3tpm" path="res://entities/battleship/base_ship.gd" id="1_asejc"]
+[ext_resource type="Texture2D" uid="uid://dx5srlauujmrd" path="res://assets/battleship/basebattleship.png" id="1_gogey"]
+
+[node name="BaseShip" type="Node2D" unique_id=995056119]
+script = ExtResource("1_asejc")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=431899921]
+texture = ExtResource("1_gogey")

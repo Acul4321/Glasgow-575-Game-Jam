@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://ba7is65xvwud0"]
+
+[ext_resource type="Script" uid="uid://c3p3w6eia16q2" path="res://globals/sounds/sound_manager.gd" id="1_u86i5"]
+[ext_resource type="AudioStream" uid="uid://fsfdjoj5x4e6" path="res://globals/sounds/success_bell-6776.mp3" id="2_7fp1h"]
+
+[node name="SoundManager" type="Node" unique_id=1291720013]
+script = ExtResource("1_u86i5")
+
+[node name="Songs" type="Node" parent="." unique_id=1482253823]
+
+[node name="MinigameBoss" type="AudioStreamPlayer" parent="Songs" unique_id=281439034]
+volume_db = -13.0
+
+[node name="CanBubble" type="AudioStreamPlayer" parent="Songs" unique_id=154740963]
+volume_db = 2.0
+
+[node name="CanHit" type="AudioStreamPlayer" parent="Songs" unique_id=987394854]
+volume_db = -8.0
+
+[node name="CanOpen" type="AudioStreamPlayer" parent="Songs" unique_id=1814301628]
+volume_db = -12.0
+
+[node name="GameOver" type="AudioStreamPlayer" parent="Songs" unique_id=1053091482]
+volume_db = -12.0
+
+[node name="MinigameLose" type="AudioStreamPlayer" parent="Songs" unique_id=411278505]
+volume_db = -12.0
+
+[node name="MinigameSpeedUp" type="AudioStreamPlayer" parent="Songs" unique_id=665173428]
+volume_db = -8.0
+
+[node name="MinigameVictory" type="AudioStreamPlayer" parent="Songs" unique_id=1376600511]
+volume_db = -20.0
+
+[node name="MinigameWin" type="AudioStreamPlayer" parent="Songs" unique_id=958170781]
+volume_db = -10.0
+
+[node name="NextMinigame" type="AudioStreamPlayer" parent="Songs" unique_id=143056390]
+volume_db = -13.0
+
+[node name="Voices" type="Node" parent="." unique_id=1150136090]
+
+[node name="Victory4" type="AudioStreamPlayer" parent="Voices" unique_id=2123996994]
+volume_db = -20.0
+
+[node name="Victory3" type="AudioStreamPlayer" parent="Voices" unique_id=1652524984]
+volume_db = -20.0
+
+[node name="Victory2" type="AudioStreamPlayer" parent="Voices" unique_id=1624532594]
+volume_db = -20.0
+
+[node name="Victory1" type="AudioStreamPlayer" parent="Voices" unique_id=266971901]
+volume_db = -20.0
+
+[node name="BossTime2" type="AudioStreamPlayer" parent="Voices" unique_id=1586732084]
+volume_db = -20.0
+
+[node name="BossTime1" type="AudioStreamPlayer" parent="Voices" unique_id=923752210]
+volume_db = -20.0
+
+[node name="GameOver2" type="AudioStreamPlayer" parent="Voices" unique_id=1786117336]
+volume_db = -20.0
+
+[node name="GameOver1" type="AudioStreamPlayer" parent="Voices" unique_id=564542546]
+volume_db = -20.0
+
+[node name="SpeedUp2" type="AudioStreamPlayer" parent="Voices" unique_id=718239579]
+volume_db = -20.0
+
+[node name="SpeedUp1" type="AudioStreamPlayer" parent="Voices" unique_id=1620196358]
+volume_db = -20.0
+
+[node name="Cheers1" type="AudioStreamPlayer" parent="Voices" unique_id=920681394]
+volume_db = -20.0
+
+[node name="Cheers2" type="AudioStreamPlayer" parent="Voices" unique_id=475861282]
+volume_db = -20.0
+
+[node name="Jeers1" type="AudioStreamPlayer" parent="Voices" unique_id=829242084]
+volume_db = -20.0
+
+[node name="Cheers3" type="AudioStreamPlayer" parent="Voices" unique_id=18589264]
+volume_db = -20.0
+
+[node name="Cheers4" type="AudioStreamPlayer" parent="Voices" unique_id=931378673]
+volume_db = -20.0
+
+[node name="Jeers2" type="AudioStreamPlayer" parent="Voices" unique_id=1680285258]
+volume_db = -20.0
+
+[node name="Cheers5" type="AudioStreamPlayer" parent="Voices" unique_id=684798240]
+volume_db = -20.0
+
+[node name="Jeers3" type="AudioStreamPlayer" parent="Voices" unique_id=669769858]
+volume_db = -20.0
+
+[node name="Cheers6" type="AudioStreamPlayer" parent="Voices" unique_id=203963911]
+volume_db = -20.0
+
+[node name="Jeers4" type="AudioStreamPlayer" parent="Voices" unique_id=1022637736]
+volume_db = -20.0
+
+[node name="Jeers5" type="AudioStreamPlayer" parent="Voices" unique_id=1736056872]
+volume_db = -20.0
+
+[node name="Cheers7" type="AudioStreamPlayer" parent="Voices" unique_id=1022129026]
+volume_db = -20.0
+
+[node name="Rounds" type="Node" parent="." unique_id=1238108169]
+
+[node name="Round1" type="AudioStreamPlayer" parent="Rounds" unique_id=1378084000]
+volume_db = -10.0
+
+[node name="BossRound" type="AudioStreamPlayer" parent="Rounds" unique_id=2000578515]
+volume_db = -5.0
+
+[node name="Round2" type="AudioStreamPlayer" parent="Rounds" unique_id=626996805]
+volume_db = -10.0
+
+[node name="Round3" type="AudioStreamPlayer" parent="Rounds" unique_id=862956968]
+volume_db = -10.0
+
+[node name="SFX" type="Node" parent="." unique_id=1455319311]
+
+[node name="SuccessBell" type="AudioStreamPlayer" parent="SFX" unique_id=1967619675]
+stream = ExtResource("2_7fp1h")
+volume_db = -5.0

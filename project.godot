@@ -11,13 +11,29 @@ config_version=5
 [application]
 
 config/name="gudev"
+run/main_scene="uid://ytqa4nsi75uy"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Constants="*uid://b3rkp7kvv0ml3"
+Global="*uid://btmaanpatm5uw"
+TransitionManager="*uid://cq1ijn7bfg0gd"
+SoundManager="*uid://ba7is65xvwud0"
+MoneyManager="*uid://c57ta4sg1quqt"
+
 [display]
 
+window/size/viewport_width=288
+window/size/viewport_height=512
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_width"
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
 [physics]
 
@@ -25,6 +41,11 @@ window/stretch/aspect="expand"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=true
+textures/default_filters/anisotropic_filtering_level=0
+textures/decals/filter=0
+textures/light_projectors/filter=0

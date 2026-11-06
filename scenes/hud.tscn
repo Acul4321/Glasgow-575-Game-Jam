@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bj3kt0nn70ar6"]
+
+[ext_resource type="PackedScene" uid="uid://ca3nvmmmq1b08" path="res://entities/battleship/landing_craft/landing_craft.tscn" id="1_landing_craft"]
+[ext_resource type="Script" uid="uid://ca84f37hv42bk" path="res://scripts/money_display.gd" id="2_money_display"]
+
+[node name="HUD" type="Control" unique_id=205778110]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gameplay" type="Control" parent="." unique_id=104898506]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Gameplay" unique_id=27319047]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gameplay/VBoxContainer" unique_id=1931294759]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=78036454]
+layout_mode = 2
+
+[node name="BoatPreview" parent="Gameplay/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=681631525 groups=["boat_preview"] instance=ExtResource("1_landing_craft")]
+position = Vector2(24, 16)
+scale = Vector2(0.5, 0.5)
+
+[node name="BoatPriceLabel" type="Label" parent="Gameplay/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=23322097 groups=["boat_price_display"]]
+layout_mode = 2
+text = "$Price"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gameplay/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1866059629]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Gameplay/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1041992556]
+custom_minimum_size = Vector2(57.335, 0)
+layout_mode = 2
+
+[node name="CannonCheck" type="VBoxContainer" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=467482127]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" unique_id=30439905]
+layout_mode = 2
+text = "Cannon"
+
+[node name="CannonPriceLabel" type="Label" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" unique_id=30439906 groups=["addon_price_display"]]
+layout_mode = 2
+text = "$0"
+metadata/addon_id = "cannon"
+
+[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/CannonCheck" unique_id=2132809196 groups=["addon_selector"]]
+layout_mode = 2
+metadata/addon_id = "cannon"
+
+[node name="ArmourCheck" type="VBoxContainer" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=358671260]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" unique_id=1127148326]
+layout_mode = 2
+text = "Armour"
+
+[node name="ArmourPriceLabel" type="Label" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" unique_id=1127148327 groups=["addon_price_display"]]
+layout_mode = 2
+text = "$0"
+metadata/addon_id = "armour"
+
+[node name="CheckButton" type="CheckButton" parent="Gameplay/VBoxContainer/HBoxContainer/ArmourCheck" unique_id=1037484245 groups=["addon_selector"]]
+layout_mode = 2
+metadata/addon_id = "armour"
+
+[node name="LaunchButton" type="Button" parent="Gameplay/VBoxContainer/HBoxContainer" unique_id=1428651150 groups=["launch_button"]]
+layout_mode = 2
+text = "Launch"
+
+[node name="BuildProgress" type="ProgressBar" parent="Gameplay/VBoxContainer" unique_id=1273698552]
+layout_mode = 2
+
+[node name="MoneyDisplay" type="RichTextLabel" parent="Gameplay" unique_id=1823706956]
+layout_mode = 0
+offset_top = -357.0
+offset_right = 286.0
+offset_bottom = -317.0
+fit_content = true
+scroll_active = false
+script = ExtResource("2_money_display")
