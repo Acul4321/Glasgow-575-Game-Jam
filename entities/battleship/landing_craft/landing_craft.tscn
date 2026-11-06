@@ -5,12 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://dx5srlauujmrd" path="res://assets/battleship/basebattleship.png" id="2_ttaj1"]
 
 [node name="LandingCraft" unique_id=995056119 instance=ExtResource("1_wlb7j")]
+cost = 20
 
 [node name="ArmourAddon" type="Sprite2D" parent="." index="0" unique_id=301363483 groups=["ship_addon"]]
 visible = false
 rotation = 0.3874631
 texture = ExtResource("2_ttaj1")
 metadata/addon_id = "armour"
+metadata/cost = 10
 
 [node name="Base" parent="." index="1" unique_id=431899921]
 metadata/_aseprite_wizard_interface_config_ = {
@@ -40,3 +42,4 @@ visible = false
 position = Vector2(1, -2)
 texture = ExtResource("2_gcdad")
 metadata/addon_id = "cannon"
+metadata/cost = 15

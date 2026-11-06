@@ -38,6 +38,10 @@ func build_boat(boat_scene: PackedScene, addons: Array[String] = []) -> void:
 		push_error("No boat scene assigned to the base.")
 		return
 
+	var total_cost := _get_boat_cost(boat_scene, addons)
+	if is_player_base and not MoneyManager.spend_money(total_cost):
+		return
+
 	is_building = true
 
 	# creates timer to build boat and then displays it on the progress bar
@@ -71,6 +75,23 @@ func build_boat(boat_scene: PackedScene, addons: Array[String] = []) -> void:
 
 	is_building = false
 	boat_built.emit()
+
+
+# Calculates the boat cost plus the costs of its selected addon visuals.
+func _get_boat_cost(boat_scene: PackedScene, addons: Array[String]) -> int:
+	var cost_preview := boat_scene.instantiate()
+	var total_cost := int(cost_preview.get("cost"))
+
+	for addon in cost_preview.find_children("*", "CanvasItem", true, false):
+		if not addon.is_in_group("ship_addon"):
+			continue
+
+		var addon_id := str(addon.get_meta("addon_id", ""))
+		if addon_id in addons:
+			total_cost += int(addon.get_meta("cost", 0))
+
+	cost_preview.free()
+	return total_cost
 
 
 func destroy_base() -> void:

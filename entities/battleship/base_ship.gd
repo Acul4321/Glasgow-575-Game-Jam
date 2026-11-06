@@ -9,6 +9,7 @@ enum ShipSize {
 
 @export var size: ShipSize = ShipSize.Tiny
 @export var build_time: float = 1
+@export var cost: int = 20
 
 func _ready() -> void:
 	set_addons([])
